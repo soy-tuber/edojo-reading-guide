@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会｜中学受験 学習ガイド</title>
+<style>
+  :root{
+    --ink:#20242a;--ink-soft:#5b6573;--paper:#f5f4ef;--card:#fff;--line:#d8d5cc;
+    --phys:#2f6db0;--chem:#1f8f80;--bio:#5e9b34;--earth:#bd7234;
+    --geo:#1f8f80;--hist:#8a4f86;--civ:#c08a2e;
+    --calc:#b23a48;--kijutsu:#8a4f86;--shiryo:#2f6db0;--jiji:#5e9b34;--anki:#7a8290;--trap:#c2410c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Meiryo","Noto Sans JP",sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.55;padding:24px 18px 70px;}
+  .wrap{max-width:1060px;margin:0 auto;}
+  header.mast{border-bottom:3px solid var(--ink);padding-bottom:12px;margin-bottom:10px;}
+  .mast .eyebrow{font-size:11.5px;letter-spacing:.3em;color:var(--ink-soft);font-weight:700;}
+  .mast h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:27px;font-weight:700;letter-spacing:.03em;margin-top:3px;}
+
+  /* 設計思想ストリップ */
+  .philo{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 18px;}
+  .philo div{background:var(--card);border:1px solid var(--line);padding:8px 11px;font-size:11.5px;color:var(--ink-soft);}
+  .philo div b{display:block;color:var(--ink);font-size:12px;margin-bottom:2px;}
+
+  .tabs{display:flex;gap:8px;margin-bottom:8px;}
+  .tab{font-size:14px;font-weight:700;padding:8px 20px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--ink-soft);}
+  .tab.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+  .bar{display:flex;flex-wrap:wrap;gap:7px 15px;align-items:center;font-size:12px;color:var(--ink-soft);
+    background:var(--card);border:1px solid var(--line);padding:9px 13px;margin:8px 0 18px;}
+  .bar b{color:var(--ink);}
+  .sk{display:inline-block;font-size:10.5px;font-weight:700;color:#fff;padding:2px 6px;border-radius:3px;}
+  .sk.calc{background:var(--calc);}.sk.kijutsu{background:var(--kijutsu);}.sk.shiryo{background:var(--shiryo);}
+  .sk.jiji{background:var(--jiji);}.sk.anki{background:var(--anki);}
+
+  .layout{display:grid;grid-template-columns:340px 1fr;gap:18px;align-items:start;}
+  @media(max-width:780px){.layout{grid-template-columns:1fr;}.philo{grid-template-columns:1fr;}}
+
+  .field{margin-bottom:14px;}
+  .field h3{font-size:13px;letter-spacing:.05em;border-left:6px solid var(--fc);padding-left:8px;margin-bottom:8px;color:var(--fc);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:12px;padding:6px 9px;border:1px solid var(--line);background:var(--card);border-radius:4px;}
+  .chip.flag,.chip.hit{border-left:4px solid var(--fc);cursor:pointer;}
+  .chip.flag{font-weight:700;}
+  .chip.flag::after{content:" 詳";font-size:9px;color:#fff;background:var(--fc);padding:1px 4px;border-radius:3px;margin-left:4px;vertical-align:middle;}
+  .chip.hit:hover,.chip.flag:hover{background:#fbfaf6;}
+  .chip.miss{color:#aaa49a;border-style:dashed;background:transparent;}
+  .chip.miss::after{content:" 穴";font-size:9.5px;color:#bb8;}
+  .chip.sel{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .chip.sel::after{background:#fff;color:var(--ink);}
+
+  /* 学習ユニット */
+  .unit{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--fc);padding:18px 20px;min-height:300px;}
+  .unit .empty{color:var(--ink-soft);font-size:13.5px;}
+  .uhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:13px;}
+  .uhead .nm{font-size:18px;font-weight:700;}
+  .uhead .tags{display:flex;gap:5px;}
+  .block{margin-bottom:14px;}
+  .block .h{font-size:11px;font-weight:700;letter-spacing:.07em;color:var(--ink-soft);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+  .anchor{font-size:13px;color:var(--ink-soft);background:#f7f6f1;border-left:3px solid var(--bio);padding:7px 10px;}
+  .anchor b{color:var(--ink);}
+  .prob{font-size:13.5px;background:#fbfaf6;border:1px solid var(--line);padding:9px 11px;}
+  .prob .src{font-size:11px;color:var(--ink-soft);margin-top:4px;}
+  .think{font-size:14px;font-weight:600;border-left:4px solid var(--ink);padding:6px 0 6px 10px;}
+  .steps button{font-size:12.5px;font-weight:700;border:1px solid var(--fc);color:var(--fc);background:none;border-radius:4px;padding:6px 12px;cursor:pointer;margin:8px 8px 0 0;}
+  .steps button:hover{background:#fbfaf6;}
+  .reveal{display:none;margin-top:9px;font-size:13.5px;}
+  .reveal.show{display:block;}
+  .reveal ul{margin:0 0 0 18px;}.reveal li{margin-bottom:3px;}
+  .trap{font-size:13px;border-left:4px solid var(--trap);padding:6px 0 6px 10px;color:#7a3410;background:#fdf3ec;}
+  .trap b{color:var(--trap);}
+  .quiz{background:#fff;border:1px solid var(--line);padding:9px 11px;font-size:13.5px;}
+  .quiz .q{font-weight:600;}
+  .quiz .ab{font-size:11.5px;border:1px solid var(--line);background:#f3f1ea;border-radius:3px;padding:3px 9px;cursor:pointer;color:var(--ink-soft);margin-top:6px;}
+  .quiz .a{display:none;font-weight:700;color:var(--fc);margin-left:8px;}
+  .quiz .a.show{display:inline;}
+  .fact{font-size:11.5px;color:#7a3410;background:#fdf3ec;border:1px solid #f0d9c8;padding:7px 10px;margin-top:6px;}
+
+  .note{font-size:11.5px;color:var(--ink-soft);margin-top:22px;border-top:1px solid var(--line);padding-top:12px;}
+
+  .topnav{max-width:1060px;margin:6px auto 0;padding:0 18px;font-size:12px;}
+  .topnav a{color:#5b6573;text-decoration:none;}
+  .planbox{max-width:1060px;margin:14px auto;padding:0 18px;}
+  .planbox details{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;}
+  .planbox summary{cursor:pointer;font-weight:700;color:var(--ink);}
+  .planbox h1{font-size:1.3em;border-bottom:2px solid var(--ink);padding-bottom:6px;}
+  .planbox h2{font-size:1.08em;border-left:6px solid var(--phys);padding-left:8px;margin-top:1.1em;}
+  .planbox table{border-collapse:collapse;width:100%;font-size:.85em;margin:10px 0;}
+  .planbox th,.planbox td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top;}
+  .planbox th{background:#efeee8;}
+  .planbox blockquote{border-left:4px solid var(--phys);background:#faf9f5;margin:10px 0;padding:8px 12px;}
+  .planbox code{background:#ecebe6;padding:1px 4px;border-radius:3px;}
+  .planbox ul,.planbox ol{padding-left:1.3em;}
+</style>
+</head>
+<body>
+<div class="topnav"><a href="index.html">← ホーム</a></div>
+<div class="wrap">
+  <header class="mast">
+    <div class="eyebrow">中学受験 理社 学習サイト（参考版・静的モック）</div>
+    <h1>過去問 × 体系図 × ソクラテス</h1>
+  </header>
+<div class="planbox"><details><summary>📋 社会 学習計画（出題傾向・ロードマップ）を開く</summary>
+<h1>社会 学習計画 — 江戸川女子中 過去問直結版</h1>
+<blockquote>
+<p><strong>方針</strong>：過去問が背骨。江戸女が実際に出した単元を軸に、<strong>ベネッセで広くインプット → このアプリの過去問アウトプットで「解ける」に変える</strong>。即答せず、楽しく。</p>
+<p><strong>お子さんは今 小4</strong>（受験は小6＝2029年2月想定／あと約2年8ヶ月）。時間はたっぷり。今は詰め込みでなく <strong>「土台＋興味」</strong>。下の出題傾向は“いつか解けるようにする到達目標”として使います。</p>
+</blockquote>
+<hr />
+<h2>1. まず結論：江戸女・社会はこう出る（R7 第1〜3回の分析）</h2>
+<p>3回とも構成が安定。<strong>歴史 → 地理 → 公民</strong> の順で、各回およそ <strong>歴史4〜5 / 地理2〜3 / 公民3〜4</strong> テーマ。</p>
+<ol>
+<li><strong>歴史が最重量。しかも「通史・年代の並べかえ」が毎回（3/3回）大問1。</strong>
+   → 社会の一丁目一番地。<strong>年代の流れ</strong>を線でつかむのが最優先。</li>
+<li><strong>近現代史（幕末〜大正）が厚い。</strong> 開国と貿易／開国と井伊直弼／条約改正／文明開化と鉄道／大日本帝国憲法／第一次世界大戦／大正デモクラシー・女性運動。
+   → 「<strong>黒船→明治→大正</strong>」の一本道を物語で。</li>
+<li><strong>文化史がくり返し出る。</strong> 浄土信仰と平安文化／鎌倉新仏教／古今和歌集／聖武天皇と奈良の仏教。
+   → 各時代の文化を<strong>セット</strong>で。</li>
+<li><strong>公民は「統治機構＋人権」＋「経済」＋「国際」。</strong> 三権分立・国会・裁判所(三審制)・憲法・基本的人権は毎回。経済＝日銀／景気／税(直接・間接)／インフレ。国際＝<strong>国際連合が2回</strong>＋安全保障。
+   → <strong>時事</strong>とつながる（成年年齢18歳、安全保障）。</li>
+<li><strong>地理は「地形・産業・資料読み取り」型。</strong> 地形図／雨温図／統計表／川がつくる地形・都市と地形／<strong>工業地帯は2回</strong>。
+   → 県名暗記より<strong>資料を読む力</strong>。</li>
+</ol>
+<p><strong>くり返し出る＝最重要（コア）</strong>：歴史通史並べかえ(3回)・工業地帯(2回)・国際連合(2回)・地形(川/平野)・統治機構/人権。</p>
+<p><strong>求められる5つの力</strong>：①暗記(基礎) ②年代並べかえ ③資料・統計読み取り ④記述(40〜60字) ⑤時事</p>
+<h3>出題マップ（網羅監査）</h3>
+<table>
+<thead>
+<tr>
+<th>分野</th>
+<th>出た単元（出題回）</th>
+<th>位置づけ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>歴史</strong></td>
+<td>通史並べかえ(1・2・3)／開国(3×2)／条約改正(2)／文明開化(3)／帝国憲法(3)／WWI(2)／大正デモクラシー(1)／室町安土桃山(1)／摂関(1)／鎌倉新仏教(1)／浄土・平安文化(1)／古今和歌集(2)／奈良仏教(3)</td>
+<td>最重量＝<strong>通史＋近現代＋文化史</strong></td>
+</tr>
+<tr>
+<td><strong>地理</strong></td>
+<td>地形図(1)／川の地形(1)／半島岬(1)／工業地帯(1・3)／昼夜間人口(1)／農産物統計(1)／ハザードマップ(1)／中部長野(2)／果樹栽培(2)／伝統工芸(2)／都市と地形(3)／雨温図(3)</td>
+<td><strong>資料読解＋地形＋産業</strong></td>
+</tr>
+<tr>
+<td><strong>公民</strong></td>
+<td>三権分立(1)／国会(2・3)／裁判所三審制(2)／憲法違憲審査(2)／基本的人権(1・2)／国民主権(1)／日銀(1)／景気と金融(1)／税(3)／インフレ(3)／地方自治(2)／選挙権・成年(2)／国際連合(1・3)／安全保障(3)</td>
+<td><strong>統治＋人権＋経済＋国際(時事)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. 優先順位（何からやるか）</h2>
+<ol>
+<li><strong>【最優先】歴史の通史と年代並べかえ</strong> … 毎回出る土台。ここが立つと歴史全体が解ける。</li>
+<li><strong>【コア】近現代史（開国〜大正）の一本道</strong> … 出題が密集。</li>
+<li><strong>【コア】公民の統治機構＋基本的人権</strong> … 毎回・得点源。</li>
+<li><strong>文化史のセット暗記</strong>（奈良・平安・鎌倉）。</li>
+<li><strong>公民の経済＋国際</strong>（日銀・税・インフレ／国連・安保）＝時事と一緒に。</li>
+<li><strong>地理の資料読解＋地形＋工業</strong> … 暗記より「読む練習」。</li>
+<li><strong>【穴＝ベネッセで補完】</strong> 今回未出だが入試頻出（各地方の地誌・水産・貿易資源・古代中世の細かい暗記 など）。</li>
+</ol>
+<hr />
+<h2>3. 学年ベースのロードマップ（お子さんは今 小4）</h2>
+<blockquote>
+<p>受験は <strong>2029年2月（小6）</strong> 想定＝あと <strong>約2年8ヶ月</strong>。時間はたっぷりあります。
+<strong>小4の今は「詰め込み」より「土台＋興味」</strong>。上の出題傾向は“いつか解けるようにする到達目標”として使い、今はそこへ向けてゆっくり助走します。</p>
+</blockquote>
+<h3>🟢 小4（今〜小5春｜土台と「好き」を作る）</h3>
+<ul>
+<li><strong>歴史</strong>：まんが日本の歴史で <strong>流れを物語として好きになる</strong>（年号の丸暗記はまだ不要）。</li>
+<li><strong>地理</strong>：日本地図・都道府県・有名な地形に親しむ（地図パズル・旅番組でもOK）。</li>
+<li><strong>公民</strong>：本格はまだ先。ニュースを家族で少し話す程度。</li>
+<li><strong>アプリ</strong>：AI先生は「<strong>たのしい読み物＋やさしいクイズ</strong>」中心。過去問は <strong>ときどき“味見”</strong>（「将来こんな問題が出るんだよ」）。</li>
+<li>ベネッセ＝<strong>進研ゼミ小4</strong>のペースを崩さない。</li>
+</ul>
+<h3>🟡 小5（体系インプット＋過去問に慣れる）</h3>
+<ul>
+<li>ベネッセ小5で <strong>地理・歴史を本格的に</strong>一周。</li>
+<li>AI先生で江戸女の過去問を <strong>やさしく味見</strong>し始め、<strong>出題の型</strong>（並べかえ・資料読み取り）に慣れる。</li>
+<li><strong>歴史の通史</strong>を年表で固める（小4で作った物語に年代をのせる）。</li>
+</ul>
+<h3>🟠 小6（過去問直結・仕上げ｜受験学年）</h3>
+<ul>
+<li><strong>公民・時事</strong>を仕上げる。</li>
+<li>江戸女の <strong>実際の大問を解けるまで</strong>（記述40〜60字・資料読解）。</li>
+<li>過去問反復＋<strong>想起クイズ</strong>で定着。第1〜3回を解き直し。</li>
+</ul>
+<blockquote>
+<p>＝ 上の「優先順位」は <strong>小5〜小6で効いてくる地図</strong>。<strong>小4の今はまず歴史の物語と地図を楽しむのが最優先</strong>です。</p>
+</blockquote>
+<hr />
+<h2>4. 毎週の回し方（型）</h2>
+<ul>
+<li><strong>平日（1日20〜30分）</strong>：その日の1単元を
+  ① ベネッセでインプット（15分） → ② AI先生で同単元の過去問を1問アウトプット（ヒントで自力到達）。</li>
+<li><strong>週末</strong>：① 今週のつまずき復習 ② <strong>想起クイズ</strong>（先週やった単元を口頭で） ③ <code>weekly_review.py</code> で親子ふりかえり。</li>
+<li><strong>AI先生の使い方</strong>：分野をえらぶ →「ベネッセで○○を探してみよう」で手元資料を確認 → 過去問をチャットで出題 → ソクラテスで答えへ。</li>
+</ul>
+<hr />
+<h2>5. 分野別ガイド（具体）</h2>
+<h3>歴史（最重量）</h3>
+<ul>
+<li><strong>通史並べかえ</strong>：年号の丸暗記でなく「<strong>できごとの因果と前後</strong>」。マンガ→年表→並べかえドリル。「○○の前？後？」をAI先生とクイズ。</li>
+<li><strong>近現代の一本道</strong>：黒船(開国)→不平等条約→文明開化→自由民権→大日本帝国憲法→日清・日露→WWI→大正デモクラシー を <strong>1つの物語</strong> として通す。</li>
+<li><strong>文化史セット</strong>：奈良(聖武・大仏・正倉院)／平安(浄土・国風・かな)／鎌倉(新仏教)。政治とセットで。</li>
+<li>つまずきやすい：時代の前後、文化と政治の対応、人物の取り違え（津田梅子・樋口一葉 など）。</li>
+</ul>
+<h3>地理</h3>
+<ul>
+<li><strong>地形</strong>（川がつくる地形・平野・半島）と <strong>地形図記号</strong>。</li>
+<li><strong>工業地帯・工業地域</strong>（2回出題＝重要）。</li>
+<li><strong>資料読解</strong>：雨温図・統計表・グラフを「読む」練習。昼夜間人口のような <strong>計算＋記述</strong> も。</li>
+<li><strong>防災</strong>（ハザードマップ）。</li>
+<li>つまずきやすい：統計の読み取り、地形図の縮尺・記号。</li>
+</ul>
+<h3>公民</h3>
+<ul>
+<li><strong>統治機構</strong>：三権分立／国会／裁判所(三審制)／内閣 を図で。</li>
+<li><strong>基本的人権</strong>（社会権・選挙権）＝毎回。</li>
+<li><strong>経済</strong>：日銀・景気・金融・税(直接/間接)・インフレ。</li>
+<li><strong>国際</strong>：国際連合(2回)・安全保障 → <strong>時事</strong>（成年年齢18歳、ニュース）とつなぐ。</li>
+<li>⚠️ <strong>社会の事実は「固定の正解」をベネッセ/教科書で確認</strong>。AIに事実を作らせない（このアプリも同方針）。</li>
+</ul>
+<hr />
+<h2>6. このアプリ／AI先生の役割</h2>
+<ul>
+<li><strong>インプット＝ベネッセ</strong>（体系を広く）／ <strong>アウトプット＝このアプリ</strong>（過去問に直結、解ける化）。</li>
+<li>AI先生＝即答せず <strong>ヒントで導く</strong>。<strong>記述採点</strong> は将来Geminiに（模範解答＋加点ポイントを持たせる）。</li>
+<li>進捗は <code>chat.db</code> に蓄積。<strong>週次レビュー</strong>（<code>weekly_review.py --summarize</code>）で理解度・興味・つまずきを見て、翌週を調整。</li>
+</ul>
+<hr />
+<h2>7. 「穴」＝ベネッセで広く埋める（未出だが入試頻出）</h2>
+<p>R7で出ていないが入試で出やすい例：各地方の地誌（北海道・九州 など）／水産業の詳細／貿易・資源／古代の細かい暗記／室町〜江戸の文化／地方財政の細部 など。→ <strong>ベネッセの該当単元で先回り</strong>。</p>
+<hr />
+<blockquote>
+<p><strong>次の一歩</strong>：小4の今は、まず <strong>歴史の物語（まんが日本の歴史）と日本地図</strong> を楽しむところから。AI先生は「やさしい読み物＋クイズ」で。過去問はときどき味見。理科版も同じ形で作れます。</p>
+</blockquote>
+</details></div>
+
+  <div class="philo">
+    <div><b>過去問＝背骨</b>江戸女 R7・1回の実設問を起点に。何を学ぶかは過去問が決める。</div>
+    <div><b>体系図＝網羅監査</b>分野セルで「出題済み／穴」を可視化。穴が次の補完対象。</div>
+    <div><b>幹マンガ＋葉カード</b>マンガで流れ、カードで精度を接ぎ木。文字を木の葉に。</div>
+    <div><b>段階開示（ソクラテス）</b>まず考える→ヒント→解説。答えは最後。即答しない。</div>
+    <div><b>型 vs 事実</b>理科の計算は「型（手順）」、暗記は「事実」を分けて扱う。</div>
+    <div><b>社会は事実＝要検証</b>正解は固定データとして保持。AIに生成させない。</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab" data-sub="rika">理科</div>
+    <div class="tab on" data-sub="shakai">社会</div>
+  </div>
+  <div class="bar">
+    <span>出題カバレッジ：<b id="cov"></b></span>
+    <span>技能：<span class="sk anki">暗記</span><span class="sk calc">計算</span><span class="sk shiryo">資料</span><span class="sk kijutsu">記述</span><span class="sk jiji">時事</span></span>
+    <span style="color:#aaa49a">「詳」＝学習ユニットあり ／ 点線「穴」＝未出題＝要補完</span>
+  </div>
+
+  <div class="layout">
+    <div id="map"></div>
+    <div class="unit" id="unit"><div class="empty">左の「詳」付きセルをクリックすると、その分野の学習ユニット（マンガの場面→過去問→まず考える→ヒント→解説/型→正誤の罠→想起クイズ）が開きます。点線の「穴」セルは未出題＝別ソースで補う対象です。</div></div>
+  </div>
+
+  <p class="note">※ これは静的な参考モックです。実運用ではこのユニット構造に、RAGで引いた検証済みチャンク（過去問・解説・体系知識）を流し込みます。<b>正解は固定データ</b>として持ち、AIには「既知の正解へ向けた説明」と「段階ヒント」「類題生成」「記述採点」だけを担わせ、特に社会の事実は生成させないでください。</p>
+</div>
+
+<script>
+const FIELDS={rika:{物理:'phys',化学:'chem',生物:'bio',地学:'earth'},shakai:{地理:'geo',歴史:'hist',公民:'civ'}};
+const SKL={anki:'暗記',calc:'計算',shiryo:'資料',kijutsu:'記述',jiji:'時事'};
+// cell: [field, name, status('flag'|'hit'|'miss'), unitKey?]
+const CELLS={
+ rika:[
+  ['物理','浮力','flag','rk_fu'],['物理','光','miss'],['物理','音','miss'],['物理','てこ・てんびん','miss'],
+  ['物理','滑車・輪軸','miss'],['物理','ばね','miss'],['物理','ふりこ','miss'],['物理','電気回路','miss'],
+  ['物理','電流と磁界','miss'],['物理','運動・速さ','miss'],
+  ['化学','気体の性質','hit'],['化学','水溶液の性質','hit'],['化学','燃料電池・環境','flag','rk_nen'],
+  ['化学','状態変化','miss'],['化学','ものの溶け方・濃度','miss'],['化学','中和','miss'],['化学','熱の伝わり方','miss'],
+  ['生物','昆虫','flag','rk_kon'],['生物','動物の分類','hit'],['生物','光合成・呼吸','hit'],
+  ['生物','植物のつくり','miss'],['生物','花と種子','miss'],['生物','人体','miss'],['生物','生き物と環境','miss'],
+  ['地学','天気・前線','flag','rk_ten'],['地学','太陽の動き','miss'],['地学','月','miss'],['地学','星と星座','miss'],
+  ['地学','流水のはたらき','miss'],['地学','地層と岩石','miss'],['地学','火山と地震','miss']
+ ],
+ shakai:[
+  ['地理','人口・都市（昼夜間人口）','flag','sk_jin'],['地理','日本の国土・地形','hit'],['地理','農業','hit'],
+  ['地理','水産業','hit'],['地理','工業','hit'],['地理','7地方区分','hit'],['地理','地図・防災','hit'],
+  ['地理','気候（雨温図）','miss'],['地理','資源・貿易','miss'],
+  ['歴史','大宝律令','flag','sk_ritsu'],['歴史','大正・女性運動','flag','sk_josei'],
+  ['歴史','平安（摂関・浄土）','hit'],['歴史','鎌倉（時宗・元寇）','hit'],['歴史','室町（一向一揆）','hit'],
+  ['歴史','安土桃山（楽市楽座）','hit'],['歴史','江戸（武家諸法度）','hit'],['歴史','明治（内閣制度）','hit'],
+  ['歴史','文化史（仏教）','hit'],['歴史','旧石器・縄文・弥生','miss'],['歴史','昭和','miss'],
+  ['公民','国際社会（安保理）','flag','sk_anpo'],['公民','日本国憲法','hit'],['公民','三権分立','hit'],
+  ['公民','財政・経済（日銀）','hit'],['公民','社会保障（生存権）','hit'],['公民','選挙・地方自治','hit'],
+  ['公民','時事（新紙幣ほか）','hit']
+ ]
+};
+const UNITS={
+ rk_fu:{nm:'浮力',sk:['calc'],
+  anchor:'まんがサイエンス「浮く・沈む／潮汐力」のような“なぜ”の場面が幹。',
+  prob:'ばねばかりにつるしたレンガを水に沈め、表から浮力や、別の液体の密度を逆算する。',src:'江戸女 R7・1回 大問2',
+  think:'まず考える：軽いビニールボールを水に沈めるのが大変なのは、なぜ？',
+  hint:'ヒント：物体が「押しのけた水の重さ」の分だけ、上向きの力（浮力）を受けるから。',
+  explain:'<b>解法の型</b><ul><li>① 浮力＝沈めた部分の体積×液体の密度</li><li>② ばねばかりの値＝物体の重さ−浮力</li><li>③ 表は「沈めた長さ↔浮力」が比例 → 直線で読む／逆算する</li></ul>算数の比例・逆算がそのまま得点に。',
+  trap:'「沈めるほど浮力が強くなる」は誤解。<b>全部沈むと浮力は一定</b>（押しのける体積が増えないから）。',
+  q:'浮力の大きさは何で決まる？',a:'押しのけた液体の重さ'},
+ rk_nen:{nm:'燃料電池・環境',sk:['anki','jiji'],
+  anchor:'まんがサイエンスの「エネルギー・地球環境」回が幹。',
+  prob:'水素を燃料に酸素と反応させ電気を取り出す装置と、その生成物・発電のCO2を問う。',src:'江戸女 R7・1回 大問1⑷',
+  think:'まず考える：水素を酸素と反応させて電気をつくると、出てくるのは何？',
+  hint:'ヒント：水素が燃えると何ができる？ それと同じもの。',
+  explain:'<b>要点</b><ul><li>燃料電池＝水素＋酸素→水＋電気（CO2を出さない）</li><li>温室効果ガス＝二酸化炭素・メタン（都市ガスの主成分、牛のげっぷ）</li><li>光合成＝CO2吸収・O2放出／火力発電が最もCO2を出す</li></ul>',
+  q:'燃料電池が電気をつくるとき生じるものは？',a:'水'},
+ rk_kon:{nm:'昆虫',sk:['anki'],
+  anchor:'まんがサイエンスの昆虫回が幹。',
+  prob:'昆虫の体のつくり、セミの口や変態、節足動物・セキツイ動物の分類。',src:'江戸女 R7・1回 大問3',
+  think:'まず考える：昆虫の体は、いくつの部分に分かれている？ あしは何本？',
+  hint:'ヒント：頭・胸・腹の3つ。あしは6本で、ある一か所から出ている。',
+  explain:'<b>要点</b><ul><li>体＝頭・胸・腹／あし6本・はね（普通4枚）は<b>胸</b>から</li><li>触角＝感覚、気門＝呼吸の穴</li><li>不完全変態（さなぎなし）＝トンボ・カマキリ・バッタ／完全変態＝チョウ・ハチ・カブト</li></ul>',
+  trap:'あしが「腹」から出ていると誤答しやすい。正しくは<b>胸</b>に6本。',
+  q:'不完全変態の昆虫を1つ挙げると？',a:'トンボ（カマキリ・バッタも）'},
+ rk_ten:{nm:'天気・前線',sk:['anki'],
+  anchor:'まんがサイエンス「雨はどうして降るのか」が幹。',
+  prob:'高低気圧と前線、温暖前線の雲、フェーン現象、台風、海陸風（間違い探し含む）。',src:'江戸女 R7・1回 大問4',
+  think:'まず考える：前線をともなうのは、高気圧と低気圧のどっち？',
+  hint:'ヒント：中心に風が吹き込んで上昇気流ができ、雲ができる方。',
+  explain:'<b>要点</b><ul><li>前線＝<b>低気圧</b>にともなう／温暖前線の雲＝乱層雲（広範囲にしとしと）</li><li>山を越えて乾いた高温の風になる現象＝<b>フェーン現象</b></li><li>台風は反時計回り。進行方向の右側で風が強い</li></ul>',
+  trap:'「高気圧に前線」「台風は時計回り」は典型的な誤り。',
+  q:'山地を越えて乾いた風となり気温が上がる現象は？',a:'フェーン現象'},
+
+ sk_ritsu:{nm:'大宝律令',sk:['anki'],
+  anchor:'歴史マンガ「律令国家の成立」（飛鳥〜奈良）が幹。',
+  prob:'大宝律令の制度（二官八省・班田収授・租庸調・雑徭）の誤文を選ぶ。',src:'江戸女 R7・1回 大問1問2',
+  think:'まず考える：口分田は、何歳以上の人に与えられた？',
+  hint:'ヒント：かなり小さい年齢から。10歳より下。',
+  explain:'<b>要点</b><ul><li>班田収授法＝<b>6歳以上</b>の男女に口分田</li><li>中央＝神祇官（祭り）と太政官（政治）の二官八省</li><li>税＝租（稲）／調（特産物）／庸（都の労役の代わりの布）／雑徭（地方の労役）</li></ul>',
+  trap:'庸と雑徭の取りちがえを狙われる。庸＝布で代納、雑徭＝地方での労役。',
+  q:'口分田が与えられるのは何歳以上？',a:'6歳以上',
+  fact:'⚠ 社会の事実は要検証。正解（6歳以上 等）は固定データとして保持し、AIに生成させない。'},
+ sk_josei:{nm:'大正・女性運動',sk:['kijutsu'],
+  anchor:'歴史マンガ「大正デモクラシー・社会運動」が幹。',
+  prob:'大正期の女性運動を、青鞜社・市川房枝の語を使って40〜60字で説明する（記述）。',src:'江戸女 R7・1回 大問1問8',
+  think:'まず考える：青鞜社と市川房枝は、それぞれ何をした？',
+  hint:'ヒント：青鞜社＝平塚らいてうが雑誌を創刊。市川房枝＝女性の参政権を求めた。',
+  explain:'<b>模範記述（例）</b><br>「平塚らいてうらが青鞜社を結成して女性の自立を訴え、市川房枝らは婦人参政権（女性の選挙権）を求める運動を進めた。」（約55字）<br><b>採点ポイント</b>：青鞜社＝女性解放／市川房枝＝参政権、の2点を入れる。',
+  q:'雑誌「青鞜」を創刊した人物は？',a:'平塚らいてう',
+  fact:'⚠ 記述採点はAIの得意分野。模範解答＋加点ポイントを retrieve して、子の答案を照合採点させる。'},
+ sk_jin:{nm:'人口・都市（昼夜間人口）',sk:['shiryo','kijutsu'],
+  anchor:'地理は資料そのものが場面。地図と統計表が幹。',
+  prob:'江戸川区の昼夜間人口比率（81.9）が低い理由を、表を読んで説明する。',src:'江戸女 R7・1回 大問3問7',
+  think:'まず考える：昼夜間人口比率が100より小さい＝昼間と夜間、どちらの人口が多い？',
+  hint:'ヒント：比率＝昼間人口÷夜間人口×100。100未満＝昼間 < 夜間。',
+  explain:'<b>要点</b><ul><li>江戸川区は住宅地（ベッドタウン）で、夜間人口（住む人）が多い</li><li>昼間は通勤・通学で都心へ出ていくため、昼間人口が減る → 比率が低い</li></ul>',
+  q:'昼夜間人口比率の計算式は？',a:'昼間人口÷夜間人口×100',
+  fact:'⚠ 統計値（81.9等）は固定データで保持。資料読み取り問題は図・表をモデルに渡す必要あり。'},
+ sk_anpo:{nm:'国際社会（安全保障理事会）',sk:['jiji','kijutsu'],
+  anchor:'時事（ウクライナ侵攻）と公民が交わる場面。',
+  prob:'安保理がウクライナ侵攻に実質対応できない理由を、ロシア・常任理事国・拒否権の語で説明する。',src:'江戸女 R7・1回 大問4Ⅱ',
+  think:'まず考える：安保理の常任理事国には、どんな強い権利がある？',
+  hint:'ヒント：1国でも反対すると決議が通らない権利＝拒否権。',
+  explain:'<b>模範記述（例）</b><br>「ロシアは安全保障理事会の常任理事国であり拒否権を持つため、自国が当事者である決議に反対し、否決されてしまうから。」<br><b>採点ポイント</b>：ロシア＝常任理事国／拒否権の行使、の因果を書く。',
+  q:'常任理事国だけが持つ、決議を1国で阻止できる権利は？',a:'拒否権',
+  fact:'⚠ 時事は年度更新が必要。前年のニュースをデータ側で入れ替える設計に。'}
+};
+
+let cur='shakai';
+function render(){
+ const map=document.getElementById('map');map.innerHTML='';
+ const rows=CELLS[cur],fields=FIELDS[cur];let hit=0,tot=rows.length;
+ for(const f in fields){const fc=fields[f];
+  const sec=document.createElement('div');sec.className='field';sec.style.setProperty('--fc','var(--'+fc+')');
+  sec.innerHTML='<h3>'+f+'</h3>';const cw=document.createElement('div');cw.className='chips';
+  rows.filter(r=>r[0]===f).forEach(r=>{const i=rows.indexOf(r);const c=document.createElement('div');
+   if(r[2]==='miss'){c.className='chip miss';c.textContent=r[1];}
+   else{hit++;c.className='chip '+r[2];c.style.setProperty('--fc','var(--'+fc+')');c.textContent=r[1];
+    c.onclick=()=>open(r,fc,c);}
+   cw.appendChild(c);});
+  sec.appendChild(cw);map.appendChild(sec);}
+ document.getElementById('cov').textContent=hit+' / '+tot+' 分野';
+ document.getElementById('unit').innerHTML='<div class="empty">左の「詳」付きセルをクリックすると学習ユニットが開きます。点線「穴」は未出題＝要補完。</div>';
+}
+function open(r,fc,el){
+ document.querySelectorAll('.chip.sel').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');
+ const u=document.getElementById('unit');u.style.setProperty('--fc','var(--'+fc+')');
+ if(r[2]!=='flag'||!UNITS[r[3]]){
+  u.innerHTML='<div class="uhead"><span class="nm">'+r[1]+'</span></div>'+
+   '<div class="block"><div class="prob">この分野は江戸女 R7・1回で<b>出題済み</b>です。学習ユニット（マンガ→過去問→ソクラテス→カード）は、RAGバックエンドで検証済みデータから生成します。</div></div>';
+  return;}
+ const d=UNITS[r[3]];
+ const tags=d.sk.map(s=>'<span class="sk '+s+'">'+SKL[s]+'</span>').join('');
+ let h='<div class="uhead"><span class="nm">'+d.nm+'</span><span class="tags">'+tags+'</span></div>';
+ h+='<div class="block"><div class="h">📖 幹（マンガの場面）</div><div class="anchor">'+d.anchor+'</div></div>';
+ h+='<div class="block"><div class="h">🎯 過去問（背骨）</div><div class="prob">'+d.prob+'<div class="src">出典：'+d.src+'</div></div></div>';
+ h+='<div class="block"><div class="h">🤔 まず考える（即答しない）</div><div class="think">'+d.think+'</div>'+
+    '<div class="steps"><button onclick="rv(this)">ヒントを見る</button><button onclick="rv(this)">解説・型を見る</button>'+
+    '<div class="reveal">'+d.hint+'</div><div class="reveal">'+d.explain+'</div></div></div>';
+ if(d.trap)h+='<div class="block"><div class="h" style="color:var(--trap)">🌿 葉：正誤の罠</div><div class="trap">'+d.trap+'</div></div>';
+ h+='<div class="block"><div class="h">✅ 想起クイズ</div><div class="quiz"><span class="q">'+d.q+'</span>'+
+    '<div><span class="ab" onclick="ans(this)">答え</span><span class="a">'+d.a+'</span></div></div></div>';
+ if(d.fact)h+='<div class="fact">'+d.fact+'</div>';
+ u.innerHTML=h;
+}
+function rv(b){const rs=b.parentElement.querySelectorAll('.reveal');const idx=[...b.parentElement.querySelectorAll('button')].indexOf(b);
+ rs[idx].classList.toggle('show');b.textContent=rs[idx].classList.contains('show')?(idx===0?'ヒントを隠す':'解説を隠す'):(idx===0?'ヒントを見る':'解説・型を見る');}
+function ans(b){b.nextElementSibling.classList.toggle('show');}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');cur=t.dataset.sub;render();});
+render();
+</script>
+</body>
+</html>
