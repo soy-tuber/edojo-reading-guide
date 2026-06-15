@@ -24,6 +24,17 @@
   .navcard h3{margin:.1em 0 .3em;color:var(--accent);}
   .navcard p{margin:0;font-size:.9em;color:var(--muted);}
   .muted{color:var(--muted);}
+  .tl-axis{display:flex;justify-content:space-between;font-size:.82em;color:var(--muted);
+           border-bottom:2px solid var(--line);padding:4px 2px;margin:6px 0 10px;}
+  .tl-axis .exam{color:#c62828;font-weight:700;}
+  .sched-wrap{overflow-x:auto;}
+  .sched{display:grid;grid-template-columns:96px repeat(3,minmax(150px,1fr));gap:6px;
+         min-width:560px;font-size:.85em;}
+  .sc-head{font-weight:700;text-align:center;padding:4px;color:var(--muted);}
+  .sc-head small{font-weight:400;}
+  .sc-sub{font-weight:700;display:flex;flex-direction:column;justify-content:center;}
+  .sc-cell{border-radius:8px;padding:9px 10px;color:#fff;line-height:1.45;}
+  .c-kok{background:#6a1b9a;} .c-san{background:#b23a48;} .c-ris{background:#1565c0;}
 </style>
 </head>
 <body>
@@ -39,7 +50,33 @@
   <a class="navcard" href="sansu.html"><h3>🧮 算数</h3>
      <p>検討会スタイル＝日能研ワークと過去問を結びつけるアクティブラーニング。</p></a>
 </div>
-<p class="muted" style="margin-top:26px">※ 解説はAI（Opus）。過去問の分析を背骨に、ベネッセ等のインプットと組み合わせて使います。</p>
+
+<h2 style="margin-top:30px">🗓 学習スケジュール（2026年6月 → 2029年1月 受験）</h2>
+<div class="tl-axis"><span>2026（小4）</span><span>2027（小5）</span><span>2028（小6）</span><span class="exam">🎯 2029年1月 受験</span></div>
+<div class="sched-wrap"><div class="sched">
+  <div class="sc-head"></div>
+  <div class="sc-head">小4 後半<br><small>2026.6–2027.3</small></div>
+  <div class="sc-head">小5<br><small>2027.4–2028.3</small></div>
+  <div class="sc-head">小6<br><small>2028.4–2029.1</small></div>
+
+  <div class="sc-sub">📖 国語<br><span class="muted" style="font-weight:400;font-size:.78em">読書 月1冊</span></div>
+  <div class="sc-cell c-kok">月1冊・物語で読書習慣</div>
+  <div class="sc-cell c-kok">月1冊＋エッセイ入門</div>
+  <div class="sc-cell c-kok">月1冊＋専松出典・過去問</div>
+
+  <div class="sc-sub">🧮 算数</div>
+  <div class="sc-cell c-san">2026夏〜 日能研ワークで「型」</div>
+  <div class="sc-cell c-san">検討会（過去問と型を結びつけ）</div>
+  <div class="sc-cell c-san">過去問×検討会で仕上げ</div>
+
+  <div class="sc-sub">🗺 理科・社会</div>
+  <div class="sc-cell c-ris">ベネッセ＋歴史/サイエンスまんが（土台・興味）</div>
+  <div class="sc-cell c-ris">試験対策スタート（体系＋過去問慣れ）</div>
+  <div class="sc-cell c-ris">過去問直結・仕上げ</div>
+</div></div>
+<p class="muted">読書は全期間「月1冊」を継続。算数は夏から日能研ワーク→過去問との検討会。理科・社会は4年生は土台づくり（ベネッセ・歴史/サイエンスまんが）、5年生から本格的な試験対策。</p>
+
+<p class="muted" style="margin-top:18px">※ 解説はAI（Opus）。過去問の分析を背骨に、ベネッセ等のインプットと組み合わせて使います。</p>
 
 </div>
 </body>
