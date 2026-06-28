@@ -19,14 +19,15 @@
     .sec > h2 { font-size: 1.2em; border-left: 7px solid var(--accent); padding-left: 10px; margin-bottom: 4px; }
     .sec > .sub { color: var(--muted); font-size: .85em; margin: 0 0 12px 17px; }
     .sec.cal > h2 { border-left-color: #ad1457; }
-    .sec.novel > h2 { border-left-color: #6a1b9a; }
     .sec.essay > h2 { border-left-color: #00695c; }
+    .sec.novel > h2 { border-left-color: #6a1b9a; }
     .cal-wrap { overflow-x: auto; }
-    table.cal { border-collapse: collapse; width: 100%; min-width: 540px; font-size: .9em; background:#fff;
+    table.cal { border-collapse: collapse; width: 100%; min-width: 460px; font-size: .9em; background:#fff;
                 border:1px solid var(--line); border-radius:10px; overflow:hidden; }
     table.cal th, table.cal td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
     table.cal thead th { background:#fbe9f1; font-size:.85em; color:#880e4f; }
     table.cal td.m { white-space: nowrap; font-weight: 700; }
+    table.cal td.th { color:#00695c; font-weight:700; white-space:nowrap; }
     .ttl { font-weight:700; }
     .au { color: var(--muted); font-size:.88em; }
     .sch { font-size:.7em; font-weight:700; color:#fff; border-radius:999px; padding:1px 6px; margin-left:4px; }
@@ -49,185 +50,175 @@
 <div class="rd-wrap">
   <a class="rd-back" href="index.html">← ホーム</a>
   <div class="rd-head">
-    <h1>📕 高校受験 国語 読書ガイド（毎月の読書カレンダー）</h1>
+    <h1>📕 高校受験 国語 読書ガイド</h1>
   </div>
 
   <div class="rd-note">
-    <b>2026年7月スタート</b>。<b>毎月「小説1冊＋評論1冊」</b>を読みます。出典は<b>千葉公立高校</b>と<b>専修大学松戸高校</b>の入試問題。
-    過去問の小説11冊・評論11冊が<b>ちょうど1対1</b>なので、<b>11か月（2027年5月）で一周</b>します。<br>
+    <b>2026年7月スタート</b>。<b>評論は毎月1冊</b>を、<b>テーマがつながる順</b>に読みます（7月は岸見一郎『本をどう読むか』から）。
+    出典は<b>千葉公立高校</b>と<b>専修大学松戸高校</b>の入試問題。評論11冊を<b>2027年5月で一周</b>。
+    <b>小説は月を決めず</b>、読みたいときに自由に（下のリストから）。<br>
     凡例：
     <span class="badge bs" style="vertical-align:middle">専松高</span>＝専修大学松戸高校で出題／
     <span class="badge bc" style="vertical-align:middle">千葉公立</span>＝千葉県公立高校で出題。解説はAI（Opus）、リンクはAmazon検索です。
   </div>
 
-  <!-- ============ 月次カレンダー ============ -->
+  <!-- ============ 評論カレンダー ============ -->
   <div class="sec cal">
-    <h2>📅 毎月の読書カレンダー（2026年7月 → 2027年5月で一周）</h2>
-    <p class="sub">毎月 小説1＋評論1。読みやすい人気作から始め、後半ほど読み応えのある文章へ。</p>
+    <h2>📅 毎月の評論（2026年7月 → 2027年5月で一周）</h2>
+    <p class="sub">テーマを一本の線でたどります：読書 → 学び方 → 心 → ことば → 思考 → 社会 → 芸術 → 創造 → 未来 → 文化。</p>
     <div class="cal-wrap">
     <table class="cal">
-      <thead><tr><th>月</th><th>小説（過去問）</th><th>評論（過去問）</th></tr></thead>
+      <thead><tr><th>月</th><th>テーマ</th><th>評論（過去問）</th></tr></thead>
       <tbody>
-        <tr><td class="m">2026年7月</td>
-          <td><span class="ttl">阪急電車</span><span class="sch s">専松高</span><br><span class="au">有川浩</span></td>
-          <td><span class="ttl">高校生からのリーダーシップ入門</span><span class="sch s">専松高</span><br><span class="au">日向野幹也</span></td></tr>
-        <tr><td class="m">2026年8月</td>
-          <td><span class="ttl">線は、僕を描く</span><span class="sch s">専松高</span><br><span class="au">砥上裕將</span></td>
-          <td><span class="ttl">ルビンのツボ 芸術する体と心</span><span class="sch c">千葉公立</span><br><span class="au">齋藤亜矢</span></td></tr>
-        <tr><td class="m">2026年9月</td>
-          <td><span class="ttl">襷を、君に。</span><span class="sch s">専松高</span><br><span class="au">蓮見恭子</span></td>
-          <td><span class="ttl">潜在能力を引き出す「一瞬」をつかむ力</span><span class="sch s">専松高</span><br><span class="au">齋藤孝</span></td></tr>
-        <tr><td class="m">2026年10月</td>
-          <td><span class="ttl">ひゃっか！</span><span class="sch c">千葉公立</span><br><span class="au">今村翔吾</span></td>
-          <td><span class="ttl">つくるをひらく</span><span class="sch c">千葉公立</span><br><span class="au">光嶋裕介</span></td></tr>
-        <tr><td class="m">2026年11月</td>
-          <td><span class="ttl">銀しゃり</span><span class="sch c">千葉公立</span><br><span class="au">山本一力</span></td>
-          <td><span class="ttl">「今、ここ」から考える社会学</span><span class="sch c">千葉公立</span><br><span class="au">好井裕明</span></td></tr>
-        <tr><td class="m">2026年12月</td>
-          <td><span class="ttl">墨のゆらめき</span><span class="sch c">千葉公立</span><br><span class="au">三浦しをん</span></td>
+        <tr><td class="m">2026年7月</td><td class="th">読書</td>
           <td><span class="ttl">本をどう読むか 幸せになる読書術</span><span class="sch s">専松高</span><br><span class="au">岸見一郎</span></td></tr>
-        <tr><td class="m">2027年1月</td>
-          <td><span class="ttl">朔と新</span><span class="sch s">専松高</span><br><span class="au">いとうみく</span></td>
+        <tr><td class="m">2026年8月</td><td class="th">学び方</td>
+          <td><span class="ttl">潜在能力を引き出す「一瞬」をつかむ力</span><span class="sch s">専松高</span><br><span class="au">齋藤孝</span></td></tr>
+        <tr><td class="m">2026年9月</td><td class="th">行動・他者</td>
+          <td><span class="ttl">高校生からのリーダーシップ入門</span><span class="sch s">専松高</span><br><span class="au">日向野幹也</span></td></tr>
+        <tr><td class="m">2026年10月</td><td class="th">心</td>
           <td><span class="ttl">心のなかはどうなっているの？</span><span class="sch s">専松高</span><br><span class="au">山田剛史</span></td></tr>
-        <tr><td class="m">2027年2月</td>
-          <td><span class="ttl">人間タワー</span><span class="sch s">専松高</span><br><span class="au">朝比奈あすか</span></td>
+        <tr><td class="m">2026年11月</td><td class="th">ことば</td>
           <td><span class="ttl">言語の本質</span><span class="sch s">専松高</span><br><span class="au">今井むつみ・秋田喜美</span></td></tr>
-        <tr><td class="m">2027年3月</td>
-          <td><span class="ttl">ひとり日和</span><span class="sch s">専松高</span><br><span class="au">青山七恵</span></td>
+        <tr><td class="m">2026年12月</td><td class="th">思考・対話</td>
           <td><span class="ttl">人は語り続けるとき、考えていない</span><span class="sch s">専松高</span><br><span class="au">河野哲也</span></td></tr>
-        <tr><td class="m">2027年4月</td>
-          <td><span class="ttl">尼崎ストロベリー</span><span class="sch s">専松高</span><br><span class="au">成海隼人</span></td>
+        <tr><td class="m">2027年1月</td><td class="th">社会</td>
+          <td><span class="ttl">「今、ここ」から考える社会学</span><span class="sch c">千葉公立</span><br><span class="au">好井裕明</span></td></tr>
+        <tr><td class="m">2027年2月</td><td class="th">芸術</td>
+          <td><span class="ttl">ルビンのツボ 芸術する体と心</span><span class="sch c">千葉公立</span><br><span class="au">齋藤亜矢</span></td></tr>
+        <tr><td class="m">2027年3月</td><td class="th">創造</td>
+          <td><span class="ttl">つくるをひらく</span><span class="sch c">千葉公立</span><br><span class="au">光嶋裕介</span></td></tr>
+        <tr><td class="m">2027年4月</td><td class="th">未来・技術</td>
           <td><span class="ttl">アバターと共生する未来社会</span><span class="sch s">専松高</span><br><span class="au">石黒浩</span></td></tr>
-        <tr><td class="m">2027年5月</td>
-          <td><span class="ttl">十二月の辞書</span><span class="sch s">専松高</span><br><span class="au">早瀬耕</span></td>
+        <tr><td class="m">2027年5月</td><td class="th">文化</td>
           <td><span class="ttl">神と肉 日本の動物供犠</span><span class="sch s">専松高</span><br><span class="au">原田信男</span></td></tr>
       </tbody>
     </table>
     </div>
-    <p class="muted" style="font-size:.85em;margin-top:8px">※ 2027年5月で過去問出典を一周。以降は過去問演習や、気に入った作家の他作品へ。難しい評論は段落ごとに「要するに何を言っているか」を一言でまとめながら読むと力がつきます。</p>
+    <p class="muted" style="font-size:.85em;margin-top:8px">※ 評論は段落ごとに「要するに何を言っているか」を一言メモしながら読むと力がつきます。難しい月は無理せず、小説の方で読書のリズムを保ってOK。</p>
   </div>
 
-  <!-- ============ 小説（月別・解説） ============ -->
-  <div class="sec novel">
-    <h2>📖 毎月の小説（過去問・解説つき）</h2>
-    <p class="sub">物語で「心情・場面・主題」を読む力を育てる。上から月順。</p>
-
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.7</span><span class="bk-title">『阪急電車』</span><span class="bk-au">有川浩</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">阪急今津線の乗客たちの人生が、ひと駅ごとに少しずつ交差する連作。やさしく前向きな群像劇で、とても読みやすい。最初の1冊にぴったりです。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=有川浩+阪急電車" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.8</span><span class="bk-title">『線は、僕を描く』</span><span class="bk-au">砥上裕將</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">水墨画に出会った青年が、喪失から再生していく人気作。芸術に打ち込む熱と、繊細な描写が美しい。夢中で読めます。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=砥上裕將+線は僕を描く" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.9</span><span class="bk-title">『襷を、君に。』</span><span class="bk-au">蓮見恭子</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">女子駅伝にかける高校生たちの青春小説。走ることの苦しさと、仲間に襷をつなぐ思いが胸を打ちます。スポーツ好きにも。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=蓮見恭子+襷を君に" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.10</span><span class="bk-title">『ひゃっか！』</span><span class="bk-au">今村翔吾</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">百貨店を舞台にした若者の成長物語。「働くこと」の意味を、テンポよく楽しく描きます。直木賞作家の青春群像。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=今村翔吾+ひゃっか" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.11</span><span class="bk-title">『銀しゃり』</span><span class="bk-au">山本一力</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">江戸前の鮨職人を描く人情時代小説。仕事への矜持と、人と人とのつながりがあたたかい。時代物の入口にも。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=山本一力+銀しゃり" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.12</span><span class="bk-title">『墨のゆらめき』</span><span class="bk-au">三浦しをん</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">書家と老舗ホテルマンの交流を描く。文字に表れる人柄や、人の機微を味わえる、三浦しをんらしい一作です。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=三浦しをん+墨のゆらめき" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.1</span><span class="bk-title">『朔と新』</span><span class="bk-au">いとうみく</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">目の見えなくなった兄と、伴走する弟。葛藤と再生を描く物語で、心情の深い読みが練習できます（中学受験でも頻出）。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=いとうみく+朔と新" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.2</span><span class="bk-title">『人間タワー』</span><span class="bk-au">朝比奈あすか</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">組体操をめぐり、子ども・親・教師それぞれの声が交錯する群像劇。「学校」という場を多角的に考えさせられます。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=朝比奈あすか+人間タワー" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.3</span><span class="bk-title">『ひとり日和』</span><span class="bk-au">青山七恵</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">芥川賞受賞作。年上の女性と暮らす若者の、淡くこまやかな日常と心の成長を描きます。静かな筆致を読む練習に。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=青山七恵+ひとり日和" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.4</span><span class="bk-title">『尼崎ストロベリー』</span><span class="bk-au">成海隼人</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">関西の街を舞台にした青春小説。等身大の悩みと再起を、みずみずしく描きます。会話のリズムも楽しい一作。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=成海隼人+尼崎ストロベリー" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.5</span><span class="bk-title">『十二月の辞書』</span><span class="bk-au">早瀬耕</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">言葉と記憶をめぐる静謐な物語。繊細で含みのある文章を、丁寧に読み解く力が試されます。一周のしめくくりに。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=早瀬耕+十二月の辞書" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-  </div>
-
-  <!-- ============ 評論（月別・解説） ============ -->
+  <!-- ============ 評論（解説・つながり） ============ -->
   <div class="sec essay">
-    <h2>🧠 毎月の評論（過去問・解説つき）</h2>
-    <p class="sub">説明文・評論で「筆者の主張と論の運び」を読む力を育てる。上から月順。</p>
+    <h2>🧠 毎月の評論（解説つき・つながる順）</h2>
+    <p class="sub">前の月との「つながり」を意識すると、一年で大きな地図が描けます。</p>
 
     <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.7</span><span class="bk-title">『高校生からのリーダーシップ入門』</span><span class="bk-au">日向野幹也</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">「全員が発揮するリーダーシップ」をやさしく説く入門書。身近なテーマで、評論の論の流れを追う練習にぴったり。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=日向野幹也+高校生からのリーダーシップ入門" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.8</span><span class="bk-title">『ルビンのツボ 芸術する体と心』</span><span class="bk-au">齋藤亜矢</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">認知科学の視点から「人はなぜ絵を描くのか」を考えるエッセイ。芸術と科学をつなぐ見方が新鮮で、読みやすい。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=齋藤亜矢+ルビンのツボ" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.9</span><span class="bk-title">『潜在能力を引き出す「一瞬」をつかむ力』</span><span class="bk-au">齋藤孝</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">集中力と準備をテーマにした実用的な評論。文章が平易で具体例も豊富。評論を読み慣れる足がかりに。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=齋藤孝+一瞬をつかむ力" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.10</span><span class="bk-title">『つくるをひらく』</span><span class="bk-au">光嶋裕介</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">建築家が、各分野の表現者と「つくること」をめぐって語る対談集。創造の根っこにある考え方にふれられます。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=光嶋裕介+つくるをひらく" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.11</span><span class="bk-title">『「今、ここ」から考える社会学』</span><span class="bk-au">好井裕明</span><span class="badge bc">千葉公立</span></div>
-      <p class="bk-c">日常の「あたりまえ」を社会学の目で問い直す入門書。身近な例から「考える」習慣を育てます。説明文の良問題材。</p>
-      <a class="bk-az" href="https://www.amazon.co.jp/s?k=好井裕明+今ここから考える社会学" target="_blank" rel="noopener">🔎 Amazonで探す</a>
-    </div>
-    <div class="bk">
-      <div class="bk-h"><span class="badge bm">2026.12</span><span class="bk-title">『本をどう読むか 幸せになる読書術』</span><span class="bk-au">岸見一郎</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">『嫌われる勇気』の著者による読書論。「なぜ・どう読むか」を考える、読書そのものをテーマにした一冊。</p>
+      <div class="bk-h"><span class="badge bm">2026.7</span><span class="bk-title">『本をどう読むか 幸せになる読書術』</span><span class="bk-au">岸見一郎</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>出発点は「読書そのもの」。</b>『嫌われる勇気』の著者が、なぜ・どう読むかを語ります。この一年の読書のはじめにふさわしい一冊。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=岸見一郎+本をどう読むか" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
     <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.1</span><span class="bk-title">『心のなかはどうなっているの？』</span><span class="bk-au">山田剛史</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">高校生の「なぜ」に答える心理学入門。身近な疑問を科学的に考える筋道が学べ、説明文の読み方が育ちます。</p>
+      <div class="bk-h"><span class="badge bm">2026.8</span><span class="bk-title">『潜在能力を引き出す「一瞬」をつかむ力』</span><span class="bk-au">齋藤孝</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>「どう読むか」の次は「どう自分を生かすか」。</b>集中と準備をテーマにした実用的な評論。文章が平易で、評論を読み慣れる足がかりに。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=齋藤孝+一瞬をつかむ力" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="badge bm">2026.9</span><span class="bk-title">『高校生からのリーダーシップ入門』</span><span class="bk-au">日向野幹也</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>自分を生かす力を、他者との関わりへ。</b>「全員が発揮するリーダーシップ」をやさしく説く入門書。身近な話題で論の流れを追う練習に。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=日向野幹也+高校生からのリーダーシップ入門" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="badge bm">2026.10</span><span class="bk-title">『心のなかはどうなっているの？』</span><span class="bk-au">山田剛史</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>人と関わるには、まず「心」を知る。</b>高校生の「なぜ」に答える心理学入門。身近な疑問を科学的に考える筋道が学べます。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=山田剛史+心のなかはどうなっているの" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
     <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.2</span><span class="bk-title">『言語の本質』</span><span class="bk-au">今井むつみ・秋田喜美</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">ことばはどう生まれ育つのかを探るベストセラー新書。オノマトペから言語の核心へ迫る、論理を追う良問題材です。</p>
+      <div class="bk-h"><span class="badge bm">2026.11</span><span class="bk-title">『言語の本質』</span><span class="bk-au">今井むつみ・秋田喜美</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>心を伝える道具＝「ことば」へ。</b>ことばはどう生まれ育つのかを探るベストセラー新書。オノマトペから言語の核心に迫る、論理を追う良問題材。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=今井むつみ+言語の本質" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
     <div class="bk">
-      <div class="bk-h"><span class="badge bm">2027.3</span><span class="bk-title">『人は語り続けるとき、考えていない』</span><span class="bk-au">河野哲也</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">「対話と思考」をめぐる哲学エッセイ。立ち止まり、聞き、考えることの意味を説きます。抽象度の高い文章への一歩。</p>
+      <div class="bk-h"><span class="badge bm">2026.12</span><span class="bk-title">『人は語り続けるとき、考えていない』</span><span class="bk-au">河野哲也</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c"><b>ことばを「使う」ことと「考える」ことの関係へ。</b>立ち止まり、聞き、考えることの意味を説く哲学エッセイ。抽象度の高い文章への一歩。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=河野哲也+人は語り続けるとき考えていない" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
     <div class="bk">
+      <div class="bk-h"><span class="badge bm">2027.1</span><span class="bk-title">『「今、ここ」から考える社会学』</span><span class="bk-au">好井裕明</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c"><b>考える力を「社会のあたりまえ」へ向ける。</b>日常を社会学の目で問い直す入門書。身近な例から「考える」習慣が育ちます。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=好井裕明+今ここから考える社会学" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="badge bm">2027.2</span><span class="bk-title">『ルビンのツボ 芸術する体と心』</span><span class="bk-au">齋藤亜矢</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c"><b>社会から「人はなぜ表現するのか」へ。</b>認知科学の視点で「人はなぜ絵を描くのか」を考えるエッセイ。芸術と科学をつなぐ見方が新鮮。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=齋藤亜矢+ルビンのツボ" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="badge bm">2027.3</span><span class="bk-title">『つくるをひらく』</span><span class="bk-au">光嶋裕介</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c"><b>表現から「つくること」そのものへ。</b>建築家が各分野の表現者と「つくること」をめぐって語る対談集。創造の根っこにある考え方にふれられます。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=光嶋裕介+つくるをひらく" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
       <div class="bk-h"><span class="badge bm">2027.4</span><span class="bk-title">『アバターと共生する未来社会』</span><span class="bk-au">石黒浩</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">ロボット研究の第一人者が描く、分身（アバター）と生きる未来。技術と人間のかかわりを考える、刺激的な評論。</p>
+      <p class="bk-c"><b>つくる技術が拓く「人間と未来」。</b>ロボット研究の第一人者が描く、分身（アバター）と生きる未来。技術と人間のかかわりを考える刺激的な評論。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=石黒浩+アバターと共生する未来社会" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
     <div class="bk">
       <div class="bk-h"><span class="badge bm">2027.5</span><span class="bk-title">『神と肉 日本の動物供犠』</span><span class="bk-au">原田信男</span><span class="badge bs">専松高</span></div>
-      <p class="bk-c">食と信仰の歴史をたどる骨太な評論。文化の奥行きを読み解く、読み応えのある一冊。一周のしめくくりにふさわしい難度です。</p>
+      <p class="bk-c"><b>未来から一転、人間の根源「食と信仰」の文化史で締めくくり。</b>食べることと祈ることの歴史をたどる骨太な評論。読み応えのある一冊です。</p>
       <a class="bk-az" href="https://www.amazon.co.jp/s?k=原田信男+神と肉+日本の動物供犠" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+  </div>
+
+  <!-- ============ 小説（月指定なし・列挙） ============ -->
+  <div class="sec novel">
+    <h2>📖 小説リスト（過去問・月指定なし）</h2>
+    <p class="sub">月は決めず、読みたいときに自由に。読みやすい人気作から手に取るのがおすすめ。</p>
+
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『阪急電車』</span><span class="bk-au">有川浩</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">阪急今津線の乗客たちの人生が、ひと駅ごとに少しずつ交差する連作。やさしく前向きな群像劇で、とても読みやすい。最初の1冊にぴったり。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=有川浩+阪急電車" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『線は、僕を描く』</span><span class="bk-au">砥上裕將</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">水墨画に出会った青年が、喪失から再生していく人気作。芸術に打ち込む熱と繊細な描写が美しく、夢中で読めます。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=砥上裕將+線は僕を描く" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『襷を、君に。』</span><span class="bk-au">蓮見恭子</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">女子駅伝にかける高校生たちの青春小説。走る苦しさと、仲間に襷をつなぐ思いが胸を打ちます。スポーツ好きにも。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=蓮見恭子+襷を君に" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『ひゃっか！』</span><span class="bk-au">今村翔吾</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c">百貨店を舞台にした若者の成長物語。「働くこと」の意味を、テンポよく楽しく描く直木賞作家の青春群像。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=今村翔吾+ひゃっか" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『銀しゃり』</span><span class="bk-au">山本一力</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c">江戸前の鮨職人を描く人情時代小説。仕事への矜持と、人と人とのつながりがあたたかい。時代物の入口にも。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=山本一力+銀しゃり" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『墨のゆらめき』</span><span class="bk-au">三浦しをん</span><span class="badge bc">千葉公立</span></div>
+      <p class="bk-c">書家と老舗ホテルマンの交流を描く。文字に表れる人柄や、人の機微を味わえる、三浦しをんらしい一作。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=三浦しをん+墨のゆらめき" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『朔と新』</span><span class="bk-au">いとうみく</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">目の見えなくなった兄と、伴走する弟。葛藤と再生を描く物語で、心情の深い読みが練習できます（中学受験でも頻出）。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=いとうみく+朔と新" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『人間タワー』</span><span class="bk-au">朝比奈あすか</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">組体操をめぐり、子ども・親・教師それぞれの声が交錯する群像劇。「学校」という場を多角的に考えさせられます。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=朝比奈あすか+人間タワー" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『ひとり日和』</span><span class="bk-au">青山七恵</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">芥川賞受賞作。年上の女性と暮らす若者の、淡くこまやかな日常と心の成長を描きます。静かな筆致を読む練習に。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=青山七恵+ひとり日和" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『尼崎ストロベリー』</span><span class="bk-au">成海隼人</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">関西の街を舞台にした青春小説。等身大の悩みと再起を、みずみずしく描きます。会話のリズムも楽しい一作。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=成海隼人+尼崎ストロベリー" target="_blank" rel="noopener">🔎 Amazonで探す</a>
+    </div>
+    <div class="bk">
+      <div class="bk-h"><span class="bk-title">『十二月の辞書』</span><span class="bk-au">早瀬耕</span><span class="badge bs">専松高</span></div>
+      <p class="bk-c">言葉と記憶をめぐる静謐な物語。繊細で含みのある文章を、丁寧に読み解く力が試されます。少し読み応えのある一作。</p>
+      <a class="bk-az" href="https://www.amazon.co.jp/s?k=早瀬耕+十二月の辞書" target="_blank" rel="noopener">🔎 Amazonで探す</a>
     </div>
   </div>
 
@@ -235,16 +226,16 @@
   <div class="sec">
     <h2>🗺 まとめ</h2>
     <ul class="road">
-      <li><b>毎月</b>：<b>小説1冊＋評論1冊</b>。2026年7月『阪急電車』＋『高校生からのリーダーシップ入門』からスタート。</li>
-      <li><b>出典</b>：千葉県公立高校・専修大学松戸高校の入試問題から。小説11・評論11でちょうど1対1。</li>
-      <li><b>一周</b>：2027年5月に過去問出典を読み切り。以降は過去問演習や、気に入った作家の他作品へ。</li>
-      <li><b>読み方</b>：評論は段落ごとに「要するに何を言っているか」を一言メモ。小説は「だれが・どんな気持ちで・なぜ」を意識して。</li>
+      <li><b>評論</b>：毎月1冊を、テーマがつながる順に。2026年7月『本をどう読むか』からスタートし、2027年5月で一周。</li>
+      <li><b>つながり</b>：読書 → 学び方 → 心 → ことば → 思考 → 社会 → 芸術 → 創造 → 未来 → 文化。一年で大きな地図を描きます。</li>
+      <li><b>小説</b>：月は決めず、読みたいときに自由に。まずは『阪急電車』『線は、僕を描く』など読みやすい人気作から。</li>
+      <li><b>出典</b>：千葉県公立高校・専修大学松戸高校の入試問題から。</li>
     </ul>
   </div>
 
   <p class="rd-note" style="margin-top:24px">
     ※ 本の解説はAI（Opus）による紹介です。リンクはAmazonの検索結果に飛びます（版・在庫はその場でご確認ください）。
-    図書館で借りるのもおすすめ。難しく感じる月は無理せず、まず小説から読んで物語の力をつけましょう。
+    図書館で借りるのもおすすめ。評論がきつい月は、小説でリズムを保ちながらゆっくり進めましょう。
   </p>
 </div>
 </body>
